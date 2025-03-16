@@ -1,0 +1,11 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerBinding
+metadata:
+  name: print-triggerbinding
+  namespace: apiserversource-example
+spec:
+  params:
+    - name: event-type
+      value: $(header.Ce-Type)
+    - name: vm-name
+      value: $(body.metadata.name)

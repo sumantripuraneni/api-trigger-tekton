@@ -1,0 +1,21 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: print
+  namespace: apiserversource-example
+spec:
+  params:
+    - description: Type of Event
+      name: event-type
+      type: string
+    - description: Name of VM
+      name: vm-name
+      type: string
+  steps:
+    - computeResources: {}
+      image: alpine
+      name: print
+      script: |
+        #!/bin/sh
+        echo "Event Type: $(params.event-type)"
+        echo "VM Name: $(params.vm-name)"

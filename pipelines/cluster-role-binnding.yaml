@@ -1,0 +1,12 @@
+ind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: tekton-default-cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: apiserversource-example
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin                 #This is for a quick customer demo, change to appropriate RBAC

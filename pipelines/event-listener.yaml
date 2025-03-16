@@ -1,0 +1,14 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: EventListener
+metadata:
+  name: print-eventlistener
+  namespace: apiserversource-example
+spec:
+  serviceAccountName: pipeline
+  triggers:
+    - bindings:
+        - kind: TriggerBinding
+          ref: print-triggerbinding
+      name: print
+      template:
+        ref: print-template

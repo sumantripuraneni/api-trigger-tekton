@@ -1,0 +1,25 @@
+apiVersion: tekton.dev/v1
+kind: Pipeline
+metadata:
+  name: print
+  namespace: apiserversource-example
+spec:
+  params:
+    - default: default
+      description: Type of event
+      name: event-type
+      type: string
+    - default: default
+      description: Name of VM
+      name: vm-name
+      type: string
+  tasks:
+    - name: print
+      params:
+        - name: event-type
+          value: $(params.event-type)
+        - name: vm-name
+          value: $(params.vm-name)
+      taskRef:
+        kind: Task
+        name: print

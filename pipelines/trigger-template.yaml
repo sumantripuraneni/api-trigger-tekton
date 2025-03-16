@@ -1,0 +1,24 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerTemplate
+metadata:
+  name: print-template
+  namespace: apiserversource-example
+spec:
+  params:
+    - description: Event Type
+      name: event-type
+    - description: VM name
+      name: vm-name
+  resourcetemplates:
+    - apiVersion: tekton.dev/v1
+      kind: PipelineRun
+      metadata:
+        generateName: print-
+      spec:
+        params:
+          - name: event-type
+            value: $(tt.params.event-type)
+          - name: vm-name
+            value: $(tt.params.vm-name)
+        pipelineRef:
+          name: print
