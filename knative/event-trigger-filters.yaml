@@ -1,0 +1,18 @@
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: deployment-tekton-trigger
+  namespace: apiserversource-example
+  labels:
+    eventing.knative.dev/broker: vmevents
+spec:
+  broker: vmevents
+  filter: {}
+  filters:  #Filter using CE SQL for Events specific to Virtual Machines
+    - cesql: subject LIKE '%virtualmachine%'
+  subscriber:
+    ref:      #Tekton Event Listener
+      apiVersion: triggers.tekton.dev/v1beta1
+      kind: EventListener
+      name: print-eventlistener
+      namespace: apiserversource-example

@@ -1,0 +1,12 @@
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: events-sa-cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: events-sa
+    namespace: apiserversource-example
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin                 #For a quick customer demo. change to appropriate RBAC
