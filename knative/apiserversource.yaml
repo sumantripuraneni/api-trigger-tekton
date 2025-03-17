@@ -1,22 +1,22 @@
 apiVersion: sources.knative.dev/v1
 kind: ApiServerSource
 metadata:
-name: testevents
-namespace: apiserversource-example
+  name: testevents
+  namespace: apiserversource-example
 spec:
-serviceAccountName: events-sa
-mode: Resource
-resources:    #Add api to capture VMs
+  serviceAccountName: events-sa
+  mode: Resource
+  resources:    #Add api to capture VMs
     - apiVersion: kubevirt.io/v1
       kind: VirtualMachine
     - apiVersion: kubevirt.io/v1
       kind: VirtualMachineInstance
-sink:
-  ref:
-    #Point to evbent display if you want to display events to events-display pod stdout   
-    #apiVersion: v1
-    #kind: Service
-    #name: event-display
-    apiVersion: eventing.knative.dev/v1
-    kind: Broker
-    name: vmevents
+  sink:
+    ref:
+      #Point to evbent display if you want to display events to events-display pod stdout   
+      #apiVersion: v1
+      #kind: Service
+      #name: event-display
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: vmevents
