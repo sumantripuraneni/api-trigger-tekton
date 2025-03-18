@@ -7,7 +7,7 @@ The contents of this repository demonstrates how to use a Knative [ApiServerSour
 
 An overview of the architecture can be found below:
 
-![Overall Architecture](/images/architecture-02.png)
+![Overall Architecture](/images/architecture-02.drawio.png)
 
 ## Prerequisites
 
