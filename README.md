@@ -3,7 +3,7 @@ Triggering Tekton Pipelines as a result of changes of Virtual Machine resources 
 
 ## Overview
 
-The contents of this repository demonstrates how to use a Knative [ApiServerSource](https://knative.dev/docs/eventing/sources/apiserversource/) to trigger Tekton Pipelines when changes of OpenShift Virtual Machines (kubevirt) events are received.
+The contents of this repository demonstrates how to use a Knative [ApiServerSource](https://knative.dev/docs/eventing/sources/apiserversource/) to trigger [Tekton](https://tekton.dev/) Pipelines when changes of OpenShift Virtual Machines (kubevirt) events are received.
 
 An overview of the architecture can be found below:
 
